@@ -29,4 +29,4 @@ More examples:
 
 `qool cats ~/qr/cat.jpg --no-border`
 
-`qool squirrels /home/me/pics/qr/sq.png --size 900 dark-color grey`
+`qool squirrels /home/me/pics/qr/sq.png --size 900 --dark-color grey`
