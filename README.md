@@ -1,4 +1,4 @@
-This is a frontend to ![qrcode-rust](https://github.com/kennytm/qrcode-rust)
+This is a frontend to qrcode-rust
 
 Options include:
 
@@ -9,12 +9,12 @@ Options include:
 - Light color to use
 - Disable border space
 
-![](https://github.com/kennytm/qrcode-rust)
+![](https://i.imgur.com/LrDnIzK.jpg)
 
-Color can be changed, though it might cause problems when scanning:
+Colors can be changed, though it might cause problems when scanning:
 
 `qool "this is some text to encode" --dark-color purple --light-color pink`
 
-![](https://i.imgur.com/mdbOyiA.png)
+![](https://i.imgur.com/mdbOyiA.jpg)
 
 If no path is provided it will save images in `~/qool-codes/123.png` using the unix seconds for file names.
