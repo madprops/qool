@@ -24,3 +24,9 @@ Colors can be changed, though it might cause problems when scanning:
 `qool "this is some text to encode" --dark-color purple --light-color pink`
 
 ![](https://i.imgur.com/mdbOyiA.jpg)
+
+More examples:
+
+`qool cats ~/qr/cat.jpg --no-border`
+
+`qool squirrels /home/me/pics/qr/sq.png --size 900 dark-color grey`
