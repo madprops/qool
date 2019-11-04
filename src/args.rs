@@ -21,6 +21,7 @@ pub struct Args
     pub dark_color: String,
     pub light_color: String,
     pub border: bool,
+    pub print: bool,
 }
 
 // Start the argument system
@@ -56,6 +57,10 @@ pub fn start_args() -> Args
         .long("no-border")
         .multiple(false)
         .help("Don't show a border around the QR code"))
+    .arg(Arg::with_name("print")
+        .long("print")
+        .multiple(false)
+        .help("Only print output to the terminal"))        
     .get_matches();
 
     let text = s!(matches.value_of("Text").unwrap());
@@ -95,6 +100,11 @@ pub fn start_args() -> Args
     };
 
     let border = matches.occurrences_of("no-border") == 0;
+    let print = matches.occurrences_of("print") > 0;
 
-    Args {text, path, size, dark_color, light_color, border}
+    Args 
+    {
+        text, path, size, dark_color, 
+        light_color, border, print,
+    }
 }

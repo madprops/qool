@@ -1,4 +1,4 @@
-pub const VERSION: &str = "1.1.2";
+pub const VERSION: &str = "1.2.0";
 
 mod macros;
 mod args;
@@ -22,7 +22,8 @@ use image::Rgb;
 fn main() 
 { 
     let args = start_args();
-    make_image(args);
+    if args.print {print_code(args)}
+    else {make_image(args)}
 }
 
 // Exit the program
@@ -70,4 +71,16 @@ fn make_image(args: Args)
         args.path.to_str().unwrap());
     
     p!(s);
+}
+
+fn print_code(args: Args)
+{
+    let code = QrCode::new(args.text.as_bytes()).unwrap();
+
+    let string = code.render::<char>()
+        .quiet_zone(args.border)
+        .module_dimensions(2, 1)
+        .build();
+
+    println!("{}", string);
 }
