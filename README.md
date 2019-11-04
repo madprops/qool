@@ -35,11 +35,11 @@ Colors can be changed, though it might cause problems when scanning:
 
 # Installation
 
+The Rust compiler is required.
+
 Download zip and execute `install.sh`
 
 This will place an executable in /bin/qool
-
-To just try it you need Rust and run it with cargo.
 
 # Help
 
