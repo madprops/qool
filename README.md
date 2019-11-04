@@ -33,6 +33,12 @@ Colors can be changed, though it might cause problems when scanning:
 
 `qool squirrels /home/me/pics/qr/sq.png --size 900 --dark-color grey`
 
+# Print
+
+The code can be printed to the terminal instead.
+
+![](https://i.imgur.com/gZjmn1Rl.jpg)
+
 # Installation
 
 The Rust compiler is required.
