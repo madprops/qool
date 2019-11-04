@@ -74,12 +74,10 @@ pub fn start_args() -> Args
     {
         Some(sze) =>
         {
-            let n = sze.parse::<u32>().unwrap_or_else(|_|
+            sze.parse::<u32>().unwrap_or_else(|_|
             {
                 exit("Wrong size format.");
-            });
-
-            n
+            })
         },
         None => 88
     };
@@ -96,7 +94,7 @@ pub fn start_args() -> Args
         None => s!("white")
     };
 
-    let border = !(matches.occurrences_of("no-border") > 0);
+    let border = matches.occurrences_of("no-border") == 0;
 
     Args {text, path, size, dark_color, light_color, border}
 }

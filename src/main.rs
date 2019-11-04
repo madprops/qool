@@ -1,4 +1,4 @@
-pub const VERSION: &'static str = "1.1.1";
+pub const VERSION: &str = "1.1.1";
 
 mod macros;
 mod args;
