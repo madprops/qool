@@ -60,50 +60,40 @@ pub fn start_args() -> Args
 
     let text = s!(matches.value_of("Text").unwrap());
 
-    let path = if let Some(pth) = matches.value_of("Path")
+    let path = match matches.value_of("Path")
     {
-        PathBuf::from(pth)
-    }
-
-    else
-    {
-        home().join(PathBuf::from("qool-codes"))
-            .join(format!("{}.png", now()))
-    };
-
-    let size = if let Some(sze) = matches.value_of("size")
-    {
-        let n = sze.parse::<u32>().unwrap_or_else(|_|
+        Some(pth) => PathBuf::from(pth),
+        None =>
         {
-            exit("Wrong size format.");
-        });
-
-        n
-    }
-
-    else
-    {
-        800
+            home().join(PathBuf::from("qool-codes"))
+            .join(format!("{}.png", name(&text)))
+        }
     };
 
-    let dark_color = if let Some(clr) = matches.value_of("dark-color")
+    let size = match matches.value_of("size")
     {
-        s!(clr)
-    }
+        Some(sze) =>
+        {
+            let n = sze.parse::<u32>().unwrap_or_else(|_|
+            {
+                exit("Wrong size format.");
+            });
 
-    else
-    {
-        s!("black")
+            n
+        },
+        None => 88
     };
 
-    let light_color = if let Some(clr) = matches.value_of("light-color")
+    let dark_color = match matches.value_of("dark-color")
     {
-        s!(clr)
-    }
+        Some(color) => s!(color),
+        None => s!("black")
+    };
 
-    else
+    let light_color = match matches.value_of("light-color")
     {
-        s!("white")
+        Some(color) => s!(color),
+        None => s!("white")
     };
 
     let border = !(matches.occurrences_of("no-border") > 0);
