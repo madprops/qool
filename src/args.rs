@@ -79,7 +79,7 @@ pub fn start_args() -> Args
                 exit("Wrong size format.");
             })
         },
-        None => 88
+        None => 800
     };
 
     let dark_color = match matches.value_of("dark-color")
