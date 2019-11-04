@@ -1,10 +1,11 @@
-const VERSION: &'static str = "1.0.0";
+const VERSION: &'static str = "1.0.1";
 
 mod macros;
 
 use std::
 {
-    fs, path::PathBuf,
+    fs, process, 
+    path::{PathBuf},
     time::{SystemTime, UNIX_EPOCH},
 };
 
@@ -18,6 +19,13 @@ fn main()
 { 
     let args = start_args();
     make_image(args);
+}
+
+// Exit the program
+fn exit(s: &str) -> !
+{
+    p!(s);
+    process::exit(0)
 }
 
 // Make the QR Code image
@@ -34,11 +42,23 @@ fn make_image(args: Settings)
         .quiet_zone(args.border)
         .build();
 
+    // Get the file's parent directory
+    let parent = &args.path.parent().unwrap_or_else(||
+    { 
+        exit("Can't get file's parent.");
+    });
+
     // Create directories if they don't exist
-    fs::create_dir_all(&args.path.parent().unwrap()).unwrap();
+    fs::create_dir_all(parent).unwrap_or_else(|_|
+    {
+        exit("Couldn't create directories.");
+    });
 
     // Save the image.
-    image.save(&args.path).unwrap();
+    image.save(&args.path).unwrap_or_else(|_|
+    {
+        exit("Couldn't save image.");
+    });
 
     p!("Image saved as: {}", args.path.to_str().unwrap())
 }
@@ -104,7 +124,12 @@ fn start_args() -> Settings
 
     let size = if let Some(sze) = matches.value_of("size")
     {
-        sze.parse::<u32>().expect("Wrong size format.")
+        let n = sze.parse::<u32>().unwrap_or_else(|_|
+        {
+            exit("Wrong size format.");
+        });
+
+        n
     }
 
     else
