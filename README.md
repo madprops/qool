@@ -30,3 +30,11 @@ More examples:
 `qool cats ~/qr/cat.jpg --no-border`
 
 `qool squirrels /home/me/pics/qr/sq.png --size 900 --dark-color grey`
+
+# Installation
+
+Download zip and execute `install.sh`
+
+This will place an executable in /bin/qool
+
+To just try it you need Rust and run it with cargo.
