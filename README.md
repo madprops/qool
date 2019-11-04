@@ -1,4 +1,4 @@
-This is a frontend to qrcode-rust that allows you to generate QR Code images and save them to a file.
+This is a frontend to [qrcode-rust](https://github.com/kennytm/qrcode-rust) that allows you to generate QR Code images and save them to a file.
 
 # Options
 
