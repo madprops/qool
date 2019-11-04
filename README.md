@@ -27,7 +27,7 @@ Colors can be changed, though it might cause problems when scanning:
 
 ![](https://i.imgur.com/mdbOyiAl.jpg)
 
-# More examples:
+# More examples
 
 `qool cats ~/qr/cat.jpg --no-border`
 
