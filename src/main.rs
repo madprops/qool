@@ -64,7 +64,7 @@ fn make_image(args: Args)
         exit("Couldn't save image.");
     });
 
-    let s = format!("{}Saved{} {}", 
+    let s = format!("\n{}Saved{} {}\n", 
         termion::color::Fg(termion::color::Green),
         termion::color::Fg(termion::color::Reset),
         args.path.to_str().unwrap());
