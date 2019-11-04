@@ -1,4 +1,4 @@
-pub const VERSION: &'static str = "1.1.0";
+pub const VERSION: &'static str = "1.1.1";
 
 mod macros;
 mod args;
@@ -64,5 +64,10 @@ fn make_image(args: Args)
         exit("Couldn't save image.");
     });
 
-    p!("Image saved as: {}", args.path.to_str().unwrap());
+    let s = format!("{}Saved{} -> {}", 
+        termion::color::Fg(termion::color::Green),
+        termion::color::Fg(termion::color::Reset),
+        args.path.to_str().unwrap());
+    
+    p!(s);
 }
