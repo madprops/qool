@@ -1,6 +1,6 @@
-This is a frontend to qrcode-rust
+This is a frontend to qrcode-rust that allows you to generate QR Code images and save them to a file.
 
-Options include:
+# Options
 
 - Text to encode
 - Path to save image
@@ -8,6 +8,8 @@ Options include:
 - Dark color to use
 - Light color to use
 - Disable border space
+
+# Usage
 
 Basic use is: `qool "something to encode"`
 
@@ -25,7 +27,7 @@ Colors can be changed, though it might cause problems when scanning:
 
 ![](https://i.imgur.com/mdbOyiA.jpg)
 
-More examples:
+# More examples:
 
 `qool cats ~/qr/cat.jpg --no-border`
 
