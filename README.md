@@ -40,3 +40,7 @@ Download zip and execute `install.sh`
 This will place an executable in /bin/qool
 
 To just try it you need Rust and run it with cargo.
+
+# Help
+
+run `qool --help` to check all available arguments.
